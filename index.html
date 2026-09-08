@@ -12,8 +12,8 @@
       const invoiceConfig = {
         companyName: "شركة الجوهري",
         companyTagline: "EL GOHARY JEWELLERY",
-        phone: "01203631597",
-        country: "مصر",
+        phone: "",
+        country: "",
         website: "",
         logoData: "",
         invoiceTitle: "فاتورة مبيعات",
@@ -59,7 +59,7 @@
       }
 
       body {
-        font-family: "Cairo", "Tajawal", "Segoe UI", Tahoma, sans-serif;
+        font-family: Cairo;
         background: #e8e8e8;
         color: #000;
         font-size: 12px; 
@@ -516,6 +516,7 @@
           <div class="qr-section">
             <div class="qr-code">
               <!-- QR Code Placeholder SVG -->
+              <img src="qr-code.svg" alt="QR" width=70px/>
             </div>
             <div class="qr-text">
               امسح QR للتحقق<br />
@@ -536,7 +537,7 @@
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
                 <circle cx="12" cy="10" r="3" />
               </svg>
-              <span id="company-country">مصر</span>
+              <span id="company-country">أبو سليمان, ش 20 متفرع من شارع محطة السوق</span>
             </div>
             <div class="contact-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2">
