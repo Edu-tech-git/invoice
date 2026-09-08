@@ -40,7 +40,8 @@
 
         const logoHost = document.getElementById("company-logo-host");
         if (logoHost && invoiceConfig.logoData) {
-          logoHost.innerHTML = `<img src="${invoiceConfig.logoData}" alt="${invoiceConfig.companyName}" style="width:80px;height:80px;object-fit:cover;border-radius:50%;border:1px solid #000;background:#fff;" />`;
+          /* تم تصغير حجم الشعار هنا أيضاً ليتناسب مع A5 */
+          logoHost.innerHTML = `<img src="${invoiceConfig.logoData}" alt="${invoiceConfig.companyName}" style="width:60px;height:60px;object-fit:cover;border-radius:50%;border:1px solid #000;background:#fff;" />`;
         }
       });
     </script>
@@ -58,8 +59,8 @@
         font-family: "Cairo", "Tajawal", "Segoe UI", Tahoma, sans-serif;
         background: #e8e8e8;
         color: #000;
-        font-size: 16px;
-        line-height: 1.6;
+        font-size: 12px; /* تم التصغير ليتناسب مع A5 */
+        line-height: 1.5;
         direction: rtl;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
@@ -67,10 +68,11 @@
 
       /* ===== INVOICE CONTAINER ===== */
       .invoice-wrapper {
-        max-width: 800px;
+        width: 148mm; /* عرض ورقة A5 */
+        min-height: 210mm; /* طول ورقة A5 */
         margin: 20px auto;
         background: #fff;
-        padding: 30px 35px;
+        padding: 20px;
         box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
       }
 
@@ -79,8 +81,8 @@
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
-        margin-bottom: 25px;
-        padding-bottom: 15px;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
         border-bottom: 2px solid #000;
       }
 
@@ -94,31 +96,31 @@
       }
 
       .company-name {
-        font-size: 30px;
+        font-size: 22px;
         font-weight: 800;
         margin-bottom: 2px;
       }
 
       .company-tagline {
-        font-size: 15px;
+        font-size: 11px;
         font-weight: 600;
         color: #333;
         margin-bottom: 0;
-        letter-spacing: 2px;
+        letter-spacing: 1.5px;
       }
 
       .company-logo {
-        width: 80px;
-        height: 80px;
+        width: 60px;
+        height: 60px;
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-left: 15px;
+        margin-left: 10px;
       }
 
       .company-logo svg {
-        width: 70px;
-        height: 70px;
+        width: 50px;
+        height: 50px;
       }
 
       .contact-info {
@@ -130,23 +132,23 @@
       .contact-item {
         display: flex;
         align-items: center;
-        gap: 6px;
-        font-size: 16px;
-        margin-bottom: 5px;
+        gap: 5px;
+        font-size: 11px;
+        margin-bottom: 4px;
         color: #333;
       }
 
       .contact-item svg {
-        width: 13px;
-        height: 13px;
+        width: 11px;
+        height: 11px;
         flex-shrink: 0;
       }
 
       /* ===== INFO BOXES ===== */
       .info-boxes {
         display: flex;
-        gap: 10px;
-        margin-bottom: 18px;
+        gap: 8px;
+        margin-bottom: 15px;
         flex-direction: row-reverse;
       }
 
@@ -154,29 +156,29 @@
         flex: 1;
         border: 1.5px solid #000;
         border-radius: 6px;
-        padding: 8px 10px;
+        padding: 6px 8px;
         position: relative;
       }
 
       .info-box-title {
-        font-size: 15px;
+        font-size: 12px;
         font-weight: 700;
-        margin-bottom: 5px;
+        margin-bottom: 4px;
         display: flex;
         align-items: center;
         gap: 4px;
       }
 
       .info-box-title svg {
-        width: 12px;
-        height: 12px;
+        width: 11px;
+        height: 11px;
       }
 
       .info-row {
         display: flex;
         justify-content: space-between;
         margin-bottom: 2px;
-        font-size: 14px;
+        font-size: 11px;
       }
 
       .info-label {
@@ -189,62 +191,28 @@
         color: #000;
       }
 
-      /* Invoice Number Box (center) */
-      .invoice-number-box {
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .invoice-number-box .info-box-title {
-        justify-content: center;
-      }
-
-      .invoice-id {
-        font-size: 13px;
-        font-weight: 800;
-        margin: 4px 0;
-        letter-spacing: 0.5px;
-      }
-
-      .barcode-container {
-        margin: 3px 0;
-        height: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .barcode-container svg {
-        height: 28px;
-        width: 140px;
-      }
-
       /* ===== TABLE ===== */
       .invoice-table {
         width: 100%;
         border-collapse: collapse;
-        margin-bottom: 20px;
-        font-size: 12px;
+        margin-bottom: 15px;
       }
 
       .invoice-table thead th {
         background: #000;
         color: #fff;
-        padding: 8px 6px;
+        padding: 6px 4px;
         text-align: center;
         font-weight: 600;
-        font-size: 16px;
+        font-size: 12px;
         border: 1px solid #000;
       }
 
       .invoice-table tbody td {
-        padding: 7px 6px;
+        padding: 5px 4px;
         text-align: center;
         border: 1px solid #ccc;
-        font-size: 14px;
+        font-size: 11px;
       }
 
       .invoice-table tbody tr:nth-child(even) {
@@ -258,75 +226,74 @@
       /* ===== BOTTOM SECTIONS ===== */
       .bottom-sections {
         display: flex;
-        gap: 12px;
-        margin-bottom: 20px;
+        gap: 10px;
+        margin-bottom: 15px;
       }
 
       .summary-box {
         flex: 1.3;
         border: 1.5px solid #000;
         border-radius: 8px;
-        padding: 14px;
+        padding: 10px;
       }
 
       .summary-title {
-        font-size: 15px;
+        font-size: 13px;
         font-weight: 700;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
         text-align: center;
       }
 
       .summary-row {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 5px;
-        font-size: 13px;
-        padding: 3px 0;
+        margin-bottom: 4px;
+        font-size: 11px;
+        padding: 2px 0;
       }
 
       .summary-row.total-row {
         background: #000;
         color: #fff;
-        padding: 8px 12px;
+        padding: 6px 10px;
         border-radius: 5px;
-        margin-top: 8px;
+        margin-top: 6px;
         font-weight: 700;
-        font-size: 14px;
+        font-size: 12px;
       }
 
       .notes-box {
         flex: 0.7;
         border: 1.5px solid #000;
         border-radius: 8px;
-        padding: 14px;
+        padding: 10px;
       }
 
       .notes-title {
-        font-size: 13px;
+        font-size: 12px;
         font-weight: 700;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
         display: flex;
         align-items: center;
-        gap: 5px;
+        gap: 4px;
       }
 
       .notes-title svg {
-        width: 16px;
-        height: 16px;
+        width: 14px;
+        height: 14px;
       }
 
       .gold-prices {
         display: flex;
         flex-direction: column;
-        gap: 10px;
-        padding-top: 5px;
+        gap: 6px;
       }
 
       .gold-price-row {
         display: flex;
         justify-content: space-between;
-        font-size: 13px;
-        padding: 5px 0;
+        font-size: 11px;
+        padding: 3px 0;
         border-bottom: 1px dotted #ccc;
       }
 
@@ -343,25 +310,24 @@
       /* ===== FOOTER ===== */
       .invoice-footer {
         border-top: 1.5px solid #000;
-        padding-top: 15px;
+        padding-top: 12px;
       }
 
       .footer-top {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 18px;
       }
 
       .qr-section {
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 8px;
       }
 
       .qr-code {
-        width: 100px;
-        height: 100px;
+        width: 70px;
+        height: 70px;
         border: 1px solid #ccc;
         border-radius: 4px;
         display: flex;
@@ -370,42 +336,27 @@
       }
 
       .qr-text {
-        font-size: 16px;
+        font-size: 11px;
         color: #555;
         line-height: 1.5;
       }
 
-      .thank-you {
-        text-align: center;
-        font-size: 14px;
-        font-weight: 600;
-        color: #000;
-        line-height: 1.8;
-      }
-
-      .signature-section {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 20px;
-        padding-top: 10px;
-      }
-
-      .signature-block {
-        text-align: center;
-        flex: 1;
-      }
-
       /* ===== PRINT STYLES ===== */
+      @page {
+        size: A5 portrait; /* تحديد مقاس الطباعة الأساسي ليكون A5 */
+        margin: 5mm; /* ترك هامش صغير لحواف الطابعة */
+      }
+      
       @media print {
         body {
           background: #fff;
         }
         .invoice-wrapper {
           margin: 0;
-          padding: 20px 25px;
+          padding: 10px;
           box-shadow: none;
-          max-width: 100%;
+          width: 100%;
+          min-height: auto;
         }
       }
     </style>
@@ -414,8 +365,8 @@
     <div class="invoice-wrapper">
       <!-- ===== HEADER ===== -->
       <div class="invoice-header">
-        <!-- Company Logo -->
-        <img src="logo.png" alt="logo_G-gold" width="100px" />
+        <!-- تم تصغير الشعار ليناسب المساحة -->
+        <img src="logo.png" alt="logo_G-gold" width="70px" />
         <div class="company-info">
           <div class="company-name" id="company-name">شركة الجوهري</div>
           <div class="company-tagline" id="company-tagline">
@@ -584,7 +535,7 @@
             </div>
           </div>
 
-          <!-- Thank You -->
+          <!-- Contact Info -->
           <div class="contact-info">
             <div class="contact-item">
               <svg
